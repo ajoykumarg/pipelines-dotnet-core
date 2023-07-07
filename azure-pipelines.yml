@@ -33,14 +33,14 @@ stages:
           displayName: Build
           inputs:
             command: 'build'
-            projects: '*.sln'
+            projects: '**/*.csproj'
             arguments: --configuration Release
 
         - task: DotNetCoreCLI@2
           displayName: Test
           inputs:
             command: test
-            projects: '*.sln'
+            projects: '**/*.csproj'
             arguments: '--configuration $(BuildConfiguration)'
        
         - task: DotNetCoreCLI@2
