@@ -101,8 +101,8 @@ stages:
                   }
           - task: IISWebAppDeploymentOnMachineGroup@0
             inputs:
-              WebSiteName: '$(websiteName)'
-              Package: '$(System.DefaultWorkingDirectory)\**\*.zip'
+              WebsiteName: '$(websiteName)'
+              Package: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
           # - task: IISWebAppDeploymentOnMachineGroup@0
           #   inputs:
