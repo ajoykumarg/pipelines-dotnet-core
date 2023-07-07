@@ -63,8 +63,8 @@ stages:
    - deployment: Dev
      displayName: Dev
      environment: 
-       name: 'Dev'    
-       resourceType: VirtualMachine
+       name: 'Dev'
+      #  resourceType: VirtualMachine
      variables:
      - name: websitePhysicalPath
        value: '%SystemDrive%\inetpub\wwwroot\$(websiteName)'
@@ -72,9 +72,9 @@ stages:
      strategy:
       runOnce:
         deploy:
-          steps: 
+          steps:
           - task: IISWebAppManagementOnMachineGroup@0
-            inputs:            
+            inputs:
               IISDeploymentType: 'IISWebsite'
               ActionIISWebsite: 'CreateOrUpdateWebsite'
               WebsiteName: '$(websiteName)'
