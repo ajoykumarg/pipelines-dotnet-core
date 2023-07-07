@@ -7,8 +7,7 @@ trigger:
 - master
 
 pool:  
-  name: MyLocalSystem
-  demands: DESKTOP-LF6IHT9
+  name: DESKTOP-LF6IHT9  
 
 steps:
 
