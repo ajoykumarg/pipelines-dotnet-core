@@ -100,10 +100,10 @@ stages:
                       ]
                   }
 
-          - task: IISWebAppDeploymentOnMachineGroup@0
-            inputs:
-              WebSiteName: '$(websiteName)'
-              Package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/$(projectName).zip'
+          # - task: IISWebAppDeploymentOnMachineGroup@0
+          #   inputs:
+          #     WebSiteName: '$(websiteName)'
+          #     Package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/$(projectName).zip'
 # steps:
 
 # - task: DotNetCoreCLI@2
