@@ -29,9 +29,33 @@ steps:
     command: 'publish'
     publishWebProjects: true
 
-- task: IISWebAppDeploymentOnMachineGroup@0
+# - task: IISWebAppDeploymentOnMachineGroup@0
+#   inputs:
+#     WebSiteName: 'IIS_web_app_deploy'
+#     VirtualApplication: 'IIS_web_app_deploy'
+#     Package: '$(System.DefaultWorkingDirectory)\**\*.zip'
+
+- task: IISWebAppManagementOnMachineGroup@0
   inputs:
-    WebSiteName: 'pipelinedemo'
-    VirtualApplication: 'pipelinedemo'
-    Package: '$(System.DefaultWorkingDirectory)\**\*.zip'
-  
+    EnableIIS: true
+    IISDeploymentType: 'IISWebsite'
+    ActionIISWebsite: 'CreateOrUpdateWebsite'
+    WebsiteName: 'IIS_web_app_manage'
+    WebsitePhysicalPath: '%SystemDrive%\inetpub\wwwroot'
+    WebsitePhysicalPathAuth: 'WebsiteUserPassThrough'
+
+- task: IISWebAppManagementOnMachineGroup@0
+  inputs:
+    EnableIIS: true    
+    IISDeploymentType: 'IISWebsite'
+    ActionIISWebsite: 'CreateOrUpdateWebsite'
+    WebsiteName: 'TestingWeb'
+    WebsitePhysicalPath: '%SystemDrive%\inetpub\wwwroot'
+    WebsitePhysicalPathAuth: 'WebsiteUserPassThrough'
+    CreateOrUpdateAppPoolForWebsite: true
+    AppPoolNameForWebsite: 'TestingWeb'
+    DotNetVersionForWebsite: 'v4.0'
+    PipeLineModeForWebsite: 'Integrated'
+    AppPoolIdentityForWebsite: 'ApplicationPoolIdentity'
+
+
