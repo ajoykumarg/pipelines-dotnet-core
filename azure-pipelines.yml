@@ -55,15 +55,15 @@ stages:
         - publish: '$(Build.ArtifactStagingDirectory)'
           artifact: drop
 
-- stage: 'Dev'
-  displayName: 'Dev'
+- stage: 'Stage 1'
+  displayName: 'Stage 1'
   dependsOn: 'Build'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   jobs:
-   - deployment: Dev
-     displayName: Dev
+   - deployment: Stage 1
+     displayName: Stage 1
      environment: 
-       name: 'Dev'    
+       name: 'Stage 1'    
        resourceType: VirtualMachine
      variables:
      - name: websitePhysicalPath
