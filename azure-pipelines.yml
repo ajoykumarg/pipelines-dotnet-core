@@ -99,7 +99,7 @@ stages:
                           }
                       ]
                   }
-          - script: echo $(Build.ArtifactStagingDirectory)/drop/$(buildConfiguration)
+          - script: echo $(Build.ArtifactStagingDirectory)/$(artifact)/$(buildConfiguration)
           - task: IISWebAppDeploymentOnMachineGroup@0
             inputs:
               WebsiteName: '$(websiteName)'
