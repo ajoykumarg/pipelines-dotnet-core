@@ -102,7 +102,8 @@ stages:
           - task: IISWebAppDeploymentOnMachineGroup@0
             inputs:
               WebsiteName: '$(websiteName)'
-              Package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+              # Package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+              Package: 'C:\agent\_work\1\drop\Release\*.zip'
 
           # - task: IISWebAppDeploymentOnMachineGroup@0
           #   inputs:
