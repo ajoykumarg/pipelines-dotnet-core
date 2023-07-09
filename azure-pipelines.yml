@@ -10,7 +10,7 @@ pool:
   name: MyAgent  
 
 variables:
-  buildConfiguration: 'Release'
+  buildConfiguration: 'Release'  
 
   #Replace these variables to suit your application
   projectName: 'WeatherService'
@@ -28,13 +28,20 @@ stages:
         #   inputs:
         #     command: 'restore'
         #     projects: '*.sln'
-
         - task: DotNetCoreCLI@2
           displayName: Build
           inputs:
-            command: 'build'
-            projects: '**/*.csproj'
+            command: 'build'            
+            projects: '**/*.sln'
             arguments: --configuration Release
+
+
+        # - task: DotNetCoreCLI@2
+        #   displayName: Build
+        #   inputs:
+        #     command: 'build'
+        #     projects: '**/*.csproj'
+        #     arguments: --configuration Release
 
         - task: DotNetCoreCLI@2
           displayName: Test
