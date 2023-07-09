@@ -32,7 +32,7 @@ stages:
           displayName: Build
           inputs:
             command: 'build'            
-            projects: '**/*.sln'
+            projects: '*.sln'
             arguments: --configuration Release
 
 
