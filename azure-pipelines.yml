@@ -10,6 +10,8 @@ pool:
   name: MyAgent  
 
 variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'  
 
   #Replace these variables to suit your application
@@ -28,20 +30,18 @@ stages:
         #   inputs:
         #     command: 'restore'
         #     projects: '*.sln'
+        - task: NuGetToolInstaller@1
+        - task: NuGetCommand@2
+          inputs:
+            command: 'restore'
+            restoreSolution: '**/*.sln'
+
         - task: DotNetCoreCLI@2
           displayName: Build
           inputs:
-            command: 'build'            
-            projects: '*.sln'
+            command: 'build'
+            projects: '**/*.csproj'
             arguments: --configuration Release
-
-
-        # - task: DotNetCoreCLI@2
-        #   displayName: Build
-        #   inputs:
-        #     command: 'build'
-        #     projects: '**/*.csproj'
-        #     arguments: --configuration Release
 
         - task: DotNetCoreCLI@2
           displayName: Test
