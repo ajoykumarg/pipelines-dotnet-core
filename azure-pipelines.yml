@@ -103,7 +103,8 @@ stages:
             inputs:
               WebsiteName: '$(websiteName)'
               # Package: '$(System.DefaultWorkingDirectory)/**/*.zip'
-              Package: 'C:\agent\_work\1\drop\Release\*.zip'
+              # Package: 'C:\agent\_work\1\drop\Release\*.zip'
+              Package: '$(Build.ArtifactStagingDirectory)/$(buildConfiguration)/*.zip'
 
           # - task: IISWebAppDeploymentOnMachineGroup@0
           #   inputs:
